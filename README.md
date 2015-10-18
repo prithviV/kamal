@@ -5,3 +5,4 @@ First Grunt project
 
 TODO:
 1. Set up grunt project from scratch.
+2. Pull changes
