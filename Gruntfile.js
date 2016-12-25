@@ -1,24 +1,23 @@
 "use strict";
 module.exports = function(grunt) {
+	//load module
+	grunt.loadNpmTasks('grunt-run');
 	
-	//load connect plugin
-	 grunt.loadNpmTasks('grunt-contrib-connect');
-	
-	/*
-	 * grunt taskName:targetName
-	 * omitting targetName will run all the tasks associated taskName.
-	*/
-	grunt.initConfig({
-		connect: {
-			server: {
-                options: {
-                    open: true,
-                    base: 'kamal',
-                    keepalive: true
-                }
-            }
-		}
+	grunt.registerTask('test', '', function () {
+		var done = this.async();
+		var child = grunt.util.spawn({
+		  cmd: 'npm', // <- A better way to find the node binary
+		  args: ['run', 'start']
+		});
+		child.stdout.pipe(process.stdout);
+		child.stderr.pipe(process.stderr);
+		
+		
+		/*var exec = require('child_process').execSync;
+		var result = exec("node kamal/app/app.js", {stdio:'inherit'});
+			grunt.log.write(result);
+			*/
 	});
     
-   grunt.registerTask('default', ['connect']);
+   grunt.registerTask('default', ['test']);
 };

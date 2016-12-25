@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Node Server Running</title>
+        <link rel="stylesheet" type="text/css" href=“dist/css/app.min.css">
+    </head>
+
+    <body>
+        <form action="/update" method="POST">
+        	<select name="availableOptions">
+            	<option value='-1'> Select option</option>
+                <option value='1'> 1 option</option>
+                <option value='2'> 2 option</option>
+                <option value='3'> 3 option</option>
+            </select>
+          <input type="text" placeholder="name" name="name">
+          <input type="text" placeholder="quote" name="quote">
+          <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
